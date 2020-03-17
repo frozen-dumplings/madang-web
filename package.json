@@ -6,6 +6,13 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "repository": "git@github.com:frozen-dumplings/madang-web.git",
+  "author": "chacham <ccm0702@naver.com>",
+  "contributors": [
+    "chacham <ccm0702@naver.com>",
+    "cosmicb0y <jang.hw73@gmail.com>"
+  ],
+  "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
