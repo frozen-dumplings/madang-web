@@ -2,6 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link to="/time-line">TimeLine</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -27,6 +28,18 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+}
+
+$sizes: (0,10,15,20,25,30,50);
+$positions: ('top','left','bottom','right');
+
+@each $size in $sizes {
+  .u-m-#{$size} {
+    margin: $size + px;
+  }
+  .u-p-#{$size} {
+    padding: $size + px;
   }
 }
 </style>
