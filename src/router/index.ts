@@ -15,6 +15,11 @@ const routes = [
     component: () => import('../views/TimeLine.vue'),
   },
   {
+    path: '/channel',
+    name: 'Channel',
+    component: () => import('../views/Channel.vue'),
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('../views/About.vue'),
