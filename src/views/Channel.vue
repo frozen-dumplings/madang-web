@@ -44,11 +44,7 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 import { Socket } from 'vue-socket.io-extended';
-
-interface Message {
-  timestamp: number;
-  message: string;
-}
+import Message from '../model/message';
 
 @Component
 export default class Channel extends Vue {
