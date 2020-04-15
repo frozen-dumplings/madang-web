@@ -11,12 +11,24 @@
                  :has-counter="false"
                  type="textarea"
                  v-model="message"></b-input>
+        <div>
+          <b-button type="is-info"
+                    expanded
+                    @click="publish">Publish!</b-button>
+        </div>
       </div>
-      <footer class="card-footer">
+    </div>
+    <div class="card u-m-10">
+      <header class="card-header">
+        <p class="card-header-title">
+          Channel!
+        </p>
+      </header>
+      <b-field class="card-content">
+        <b-input v-model="channel"></b-input>
         <b-button type="is-info"
-                  expanded
-                  @click="publish">Publish!</b-button>
-      </footer>
+                  @click="registerChannel">Register!</b-button>
+      </b-field>
     </div>
     <div v-for="message in messages"
          :key="message.timestamp"
@@ -35,18 +47,24 @@ import { Socket } from 'vue-socket.io-extended';
 import Message from '../model/message';
 
 @Component
-export default class TimeLine extends Vue {
+export default class Channel extends Vue {
   private message = '';
+
+  private channel = '';
 
   private messages: Message[] = [];
 
-  @Socket('message')
+  @Socket('channel/message')
   onMessage(message: Message) {
     this.messages.unshift(message);
   }
 
   publish() {
-    this.$socket.client.emit('message', { timestamp: Date.now(), message: this.message });
+    this.$socket.client.emit('channel/message', { timestamp: Date.now(), message: this.message });
+  }
+
+  private registerChannel() {
+    this.$socket.client.emit('channel/register', { channel: this.channel });
   }
 }
 </script>
